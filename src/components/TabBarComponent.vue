@@ -47,4 +47,4 @@ import mine_select from "../assets/images/mine_select.png";
 
 const active = ref<any>("shouye");
 </script>
-<style lang="less" scoped></style>
+<style scoped></style>

@@ -6,7 +6,7 @@ var pool = mysql.createPool({
     protocol:'mysql',
     user:'root',
     password: "root",
-    database: "figertipalliance",
+    database: "vue3_shop",
     connectionLimit:100 //最大连接数
 })
 
