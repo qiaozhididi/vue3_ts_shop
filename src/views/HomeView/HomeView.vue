@@ -1,4 +1,5 @@
 <template>
+  <LayoutView />
   <div>首页</div>
   <van-button type="primary">主要按钮</van-button>
   <van-button type="success">成功按钮</van-button>
@@ -7,4 +8,6 @@
   <van-button type="warning">警告按钮</van-button>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LayoutView from '../LayoutView.vue';
+</script>
