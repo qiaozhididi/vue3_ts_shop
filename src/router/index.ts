@@ -10,34 +10,36 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/",
-      name: "layout",
+      path: '/',
+      name: 'layout',
       component: LayoutView,
-    },
-    {
-      path: "/home",
-      name: "home",
-      component: HomeView,
-    },
-    {
-      path: "/mine",
-      name: "mine",
-      component: MineView,
-    },
-    {
-      path: "/person",
-      name: "person",
-      component: PersonView,
-    },
-    {
-      path: "/place",
-      name: "place",
-      component: PlaceView,
-    },
-    {
-      path: "/shop",
-      name: "shop",
-      component: ShopView,
+      children: [
+        {
+          path: '/',
+          name: 'home',
+          component: HomeView
+        },
+        {
+          path: "/place",
+          name: "place",
+          component: PlaceView
+        },
+        {
+          path: "/shop",
+          name: "shop",
+          component: ShopView
+        },
+        {
+          path: "/person",
+          name: "person",
+          component: PersonView
+        },
+        {
+          path: "/mine",
+          name: "mine",
+          component: MineView
+        }
+      ]
     },
     {
       path:"/city",

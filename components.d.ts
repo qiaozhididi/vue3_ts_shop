@@ -10,6 +10,7 @@ declare module 'vue' {
     PubHeaderComponent: typeof import('./src/components/PubHeaderComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SwiperComponent: typeof import('./src/components/SwiperComponent.vue')['default']
     TabBarComponent: typeof import('./src/components/TabBarComponent.vue')['default']
     TopNavComponent: typeof import('./src/components/TopNavComponent.vue')['default']
     VanButton: typeof import('vant/es')['Button']
@@ -18,6 +19,8 @@ declare module 'vue' {
     VanIndexBar: typeof import('vant/es')['IndexBar']
     VanNavBar: typeof import('vant/es')['NavBar']
     VanSearch: typeof import('vant/es')['Search']
+    VanSwipe: typeof import('vant/es')['Swipe']
+    VanSwipeItem: typeof import('vant/es')['SwipeItem']
     VanTabbar: typeof import('vant/es')['Tabbar']
     VanTabbarItem: typeof import('vant/es')['TabbarItem']
   }
