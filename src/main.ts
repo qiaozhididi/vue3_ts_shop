@@ -3,6 +3,8 @@ import { createPinia } from "pinia";
 import { Tabbar, TabbarItem } from "vant";
 import App from "./App.vue";
 import router from "./router";
+import "./assets/css/main.css"
+import "./assets/font/iconfont.css"
 
 const app = createApp(App);
 

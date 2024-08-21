@@ -35,13 +35,13 @@ const onSearch = (val: string) => {
 /**
  * 切换到城市页面
  */
-const onCity = () =>{
-    router.push("/city")
-}
+const onCity = () => {
+  router.push("/city");
+};
 
 const onClickButton = () => {};
 </script>
-<style lang="less" scoped>
+<style scoped>
 .city {
   margin-right: 5px;
   span {
