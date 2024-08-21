@@ -33,6 +33,7 @@
         <span class="new-shop-price">{{ item.price }}元/月</span>
       </div>
     </div>
+    <!-- 骨架屏组件 未加载完成时显示骨架屏 -->
     <div class="skeleton-newShop" v-else>
       <div class="skeleton-item">
         <van-skeleton-image class="image" />
