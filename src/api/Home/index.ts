@@ -18,17 +18,25 @@ export function getBeauty(params: any) {
 }
 
 // 最新商铺
-export function getNewGoods(){
+export function getNewGoods() {
   return axios({
-      url:"/api/api/newgoods",
-      method:"get"
-  })
+    url: "/api/api/newgoods",
+    method: "get",
+  });
 }
 
 // 人才库
-export function getPersonStore(){
+export function getPersonStore() {
   return axios({
-      url:"/api/api/personstore",
-      method:"get"
-  })
+    url: "/api/api/personstore",
+    method: "get",
+  });
+}
+
+// 为你推荐
+export function getRecommendgoods() {
+  return axios({
+    url: "/api/api/recommendgoods",
+    method: "get",
+  });
 }

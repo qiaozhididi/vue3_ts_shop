@@ -25,6 +25,7 @@
       <h3>优选店铺</h3>
     </div>
   </div>
+  <!-- 最新商铺 -->
   <RollComponent :rollInfo="newShopInfo">
     <div class="new-shop-content" v-if="newGoodsLoading">
       <div class="new-shop-item" v-for="(item, index) in newGoods" :key="index">
@@ -50,6 +51,7 @@
   <div class="ad">
     <img src="../../assets/images/banner1.jpg" alt="" />
   </div>
+  <!-- 人才库 -->
   <RollComponent :rollInfo="personInfo">
     <div class="person-content">
       <div
@@ -63,6 +65,15 @@
       </div>
     </div>
   </RollComponent>
+
+  <!-- 为你推荐 -->
+  <div class="recommend-main">
+    <CardComponent
+      :recommendTitle="recommendTitle"
+      :cardData="recommendGoods"
+      v-if="recommendGoodsLoading"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -70,7 +81,12 @@ import { onMounted, ref, reactive } from "vue";
 import router from "@/router";
 import SwiperComponent from "@/components/SwiperComponent.vue";
 import TopNavComponent from "@/components/TopNavComponent.vue";
-import { getBanners, getNewGoods, getPersonStore } from "@/api/Home/index";
+import {
+  getBanners,
+  getNewGoods,
+  getPersonStore,
+  getRecommendgoods,
+} from "@/api/Home/index";
 import nav1 from "../../assets/images/nav1.png";
 import nav2 from "../../assets/images/nav2.png";
 import nav3 from "../../assets/images/nav3.png";
@@ -190,6 +206,29 @@ onMounted(async () => {
   const res = await getPersonStore();
   if (res.status === 200) {
     personStore.value = res.data.data;
+  }
+});
+
+/**
+ * 为你推荐
+ */
+
+interface IGoods {
+  id: number;
+  image: any;
+  title: string;
+  price: string;
+}
+
+const recommendTitle = "为你推荐";
+const recommendGoodsLoading = ref<boolean>(false);
+const recommendGoods = ref<IGoods[]>([]);
+
+onMounted(async () => {
+  const res = await getRecommendgoods();
+  if (res.status === 200) {
+    recommendGoodsLoading.value = true;
+    recommendGoods.value = res.data.data;
   }
 });
 </script>
