@@ -39,6 +39,11 @@ const router = createRouter({
       name: "shop",
       component: ShopView,
     },
+    {
+      path:"/city",
+      name:"city",
+      component:()=>import("@/views/HomeView/CityView.vue")
+    }
   ],
 });
 
