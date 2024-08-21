@@ -1,63 +1,65 @@
 <template>
-    <div class="roll">
-        <div class="roll-header">
-            <h3>{{ rollInfo.title }}</h3>
-            <span class="all">{{ rollInfo.all }}<span class="iconfont icon-jiantouyou"></span></span>
-        </div>
-        <div class="roll-main">
-            <slot>默认内容</slot>
-        </div>
+  <div class="roll">
+    <div class="roll-header">
+      <h3>{{ rollInfo.title }}</h3>
+      <span class="all"
+        >{{ rollInfo.all }}<span class="iconfont icon-jiantouyou"></span
+      ></span>
     </div>
+    <!-- 插槽实现公共组件 -->
+    <div class="roll-main">
+      <slot>默认内容</slot>
+    </div>
+  </div>
 </template>
 <script setup lang="ts">
-import { ref, reactive } from "vue"
+import { ref, reactive } from "vue";
 
-interface IRoll{
-    title:string,
-    all:string
+interface IRoll {
+  title: string;
+  all: string;
 }
 
 const props = defineProps<{
-    rollInfo:IRoll
-}>()
-
+  rollInfo: IRoll;
+}>();
 </script>
 <style lang="less" scoped>
 // 左右滚动
 .roll {
-    background: #fff;
+  background: #fff;
 
-    .roll-header {
-        height: 40px;
-        line-height: 40px;
-        display: flex;
+  .roll-header {
+    height: 40px;
+    line-height: 40px;
+    display: flex;
 
-        h3 {
-            flex: 1;
-            font-size: 16px;
-            font-weight: 400;
-            text-align: left;
-            padding-left: 10px;
-        }
-
-        .all {
-            flex: 1;
-            text-align: right;
-            font-size: 14px;
-            color: #999;
-            padding-right: 10px;
-
-            span {
-                font-size: 12px;
-            }
-        }
+    h3 {
+      flex: 1;
+      font-size: 16px;
+      font-weight: 400;
+      text-align: left;
+      padding-left: 10px;
     }
 
-    .roll-main {
-        text-align: center;
-        white-space: nowrap;
-        overflow-x: scroll;
-        overflow-y: hidden;
+    .all {
+      flex: 1;
+      text-align: right;
+      font-size: 14px;
+      color: #999;
+      padding-right: 10px;
+
+      span {
+        font-size: 12px;
+      }
     }
+  }
+
+  .roll-main {
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
 }
 </style>

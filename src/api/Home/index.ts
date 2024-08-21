@@ -24,3 +24,11 @@ export function getNewGoods(){
       method:"get"
   })
 }
+
+// 人才库
+export function getPersonStore(){
+  return axios({
+      url:"/api/api/personstore",
+      method:"get"
+  })
+}

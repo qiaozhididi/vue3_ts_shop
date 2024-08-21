@@ -46,6 +46,22 @@
       </div>
     </div>
   </RollComponent>
+  <div class="ad">
+    <img src="../../assets/images/banner1.jpg" alt="" />
+  </div>
+  <RollComponent :rollInfo="personInfo">
+    <div class="person-content">
+      <div
+        class="person-item"
+        v-for="(item, index) in personStore"
+        :key="index"
+      >
+        <img :src="item.image" alt="" />
+        <p>{{ item.name }}</p>
+        <span>{{ item.desc }}</span>
+      </div>
+    </div>
+  </RollComponent>
 </template>
 
 <script setup lang="ts">
@@ -53,7 +69,7 @@ import { onMounted, ref, reactive } from "vue";
 import router from "@/router";
 import SwiperComponent from "@/components/SwiperComponent.vue";
 import TopNavComponent from "@/components/TopNavComponent.vue";
-import { getBanners, getNewGoods } from "@/api/Home/index";
+import { getBanners, getNewGoods, getPersonStore } from "@/api/Home/index";
 import nav1 from "../../assets/images/nav1.png";
 import nav2 from "../../assets/images/nav2.png";
 import nav3 from "../../assets/images/nav3.png";
@@ -145,6 +161,35 @@ onMounted(() => {
       newGoods.value = res.data.data;
     }
   });
+});
+
+/**
+ * 人才库数据读取
+ */
+
+interface IRoll {
+  title: string;
+  all: string;
+}
+
+const personInfo: IRoll = reactive({
+  title: "人才库",
+  all: "查看全部",
+});
+
+interface IPersonStore {
+  image: any;
+  name: string;
+  desc: string;
+}
+
+const personStore = ref<IPersonStore[]>([]);
+
+onMounted(async () => {
+  const res = await getPersonStore();
+  if (res.status === 200) {
+    personStore.value = res.data.data;
+  }
 });
 </script>
 <style lang="less" scoped>
@@ -291,6 +336,33 @@ onMounted(() => {
     width: 100%;
     padding: 5px;
     box-sizing: border-box;
+  }
+}
+
+/* 人才库 */
+.person-content {
+  display: flex;
+
+  .person-item {
+    margin-left: 10px;
+
+    img {
+      width: 110px;
+      height: 170px;
+      border-radius: 5px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    span {
+      display: block;
+      font-size: 14px;
+      color: #999;
+      padding-bottom: 10px;
+    }
   }
 }
 </style>

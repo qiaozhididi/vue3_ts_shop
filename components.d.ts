@@ -16,6 +16,7 @@ declare module 'vue' {
     TopNavComponent: typeof import('./src/components/TopNavComponent.vue')['default']
     VanButton: typeof import('vant/es')['Button']
     VanCell: typeof import('vant/es')['Cell']
+    VanEmpty: typeof import('vant/es')['Empty']
     VanIndexAnchor: typeof import('vant/es')['IndexAnchor']
     VanIndexBar: typeof import('vant/es')['IndexBar']
     VanList: typeof import('vant/es')['List']
