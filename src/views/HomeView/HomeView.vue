@@ -12,10 +12,24 @@
       <span>{{ item.text }}</span>
     </div>
   </div>
+  <div class="info" @click="onBeautyInfo">
+    <h3>美甲咨询</h3>
+    <p>年会不能错过的款，美呆了~</p>
+    <span class="iconfont icon-jiantouyou"></span>
+  </div>
+  <div class="recommend">
+    <div class="hot">
+      <h3>热门活动</h3>
+    </div>
+    <div class="opt">
+      <h3>优选店铺</h3>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
+import router from "@/router";
 import SwiperComponent from "@/components/SwiperComponent.vue";
 import TopNavComponent from "@/components/TopNavComponent.vue";
 import { getBanners } from "@/api/Home/index";
@@ -76,6 +90,13 @@ const navData = [
 const onItem = (val: number | string) => {
   console.log(val);
 };
+
+/**
+ * 美甲咨询详情页跳转
+ */
+const onBeautyInfo = () => {
+  router.push("/beauty");
+};
 </script>
 <style lang="less" scoped>
 .nav {
@@ -104,6 +125,63 @@ const onItem = (val: number | string) => {
       font-size: 12px;
       margin-top: 10px;
     }
+  }
+}
+.info {
+  background: #fff;
+  display: flex;
+  padding: 10px 0;
+  align-items: center;
+  border-top: 1px solid #f3f4f5;
+
+  h3 {
+    font-size: 14px;
+    color: #999;
+    font-weight: 400;
+    padding: 0 20px;
+    border-right: 1px solid #f3f4f5;
+  }
+
+  p {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+  span {
+    flex: 1;
+    text-align: right;
+    padding-right: 10px;
+  }
+}
+.recommend {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 5px;
+  display: flex;
+  padding: 10px;
+  box-sizing: border-box;
+
+  div {
+    flex: 1;
+    height: 80px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hot {
+    background: url("../../assets/images/home-cb1.png");
+    background-position: center;
+    background-size: cover;
+    margin-right: 5px;
+  }
+
+  .opt {
+    background: url("../../assets/images/home-cb2.png");
+    background-position: center;
+    background-size: cover;
+    margin-left: 5px;
   }
 }
 </style>
