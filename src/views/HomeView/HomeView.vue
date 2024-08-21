@@ -73,6 +73,13 @@
       :cardData="recommendGoods"
       v-if="recommendGoodsLoading"
     />
+    <!-- 空状态代替骨架屏 -->
+    <van-empty
+      v-else
+      image="https://fastly.jsdelivr.net/npm/@vant/assets/custom-empty-image.png"
+      image-size="80"
+      description="等待加载..."
+    />
   </div>
 </template>
 
@@ -146,7 +153,7 @@ const onItem = (val: number | string) => {
 };
 
 /**
- * 美甲咨询详情页跳转
+ * 咨询详情页跳转
  */
 const onBeautyInfo = () => {
   router.push("/beauty");
