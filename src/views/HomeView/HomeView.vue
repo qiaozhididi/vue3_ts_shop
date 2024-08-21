@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="info" @click="onBeautyInfo">
-    <h3>美甲咨询</h3>
+    <h3>相关咨询</h3>
     <p>年会不能错过的款，美呆了~</p>
     <span class="iconfont icon-jiantouyou"></span>
   </div>

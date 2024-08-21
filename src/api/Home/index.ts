@@ -7,3 +7,12 @@ export function getBanners() {
     method: "get",
   });
 }
+
+// 快讯
+export function getBeauty(params: any) {
+  return axios({
+    url: "/api/api/beauty",
+    method: "get",
+    params,
+  });
+}

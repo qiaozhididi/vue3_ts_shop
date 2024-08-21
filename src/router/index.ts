@@ -10,42 +10,47 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'layout',
+      path: "/",
+      name: "layout",
       component: LayoutView,
       children: [
         {
-          path: '/',
-          name: 'home',
-          component: HomeView
+          path: "/",
+          name: "home",
+          component: HomeView,
         },
         {
           path: "/place",
           name: "place",
-          component: PlaceView
+          component: PlaceView,
         },
         {
           path: "/shop",
           name: "shop",
-          component: ShopView
+          component: ShopView,
         },
         {
           path: "/person",
           name: "person",
-          component: PersonView
+          component: PersonView,
         },
         {
           path: "/mine",
           name: "mine",
-          component: MineView
-        }
-      ]
+          component: MineView,
+        },
+      ],
     },
     {
-      path:"/city",
-      name:"city",
-      component:()=>import("@/views/HomeView/CityView.vue")
-    }
+      path: "/city",
+      name: "city",
+      component: () => import("@/views/HomeView/CityView.vue"),
+    },
+    {
+      path: "/beauty",
+      name: "beauty",
+      component: () => import("@/views/HomeView/BeautyView.vue"),
+    },
   ],
 });
 
