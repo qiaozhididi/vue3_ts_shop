@@ -11,3 +11,6 @@
 ## 环境搭建
 工具链：npm create vite@latest
 UI组件库：npm i vant@next -S 
+
+## 本地存储持久化
+安装依赖：pinia-plugin-persist

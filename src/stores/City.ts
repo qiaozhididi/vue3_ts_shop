@@ -8,7 +8,7 @@ export const useCityStore = defineStore("city", {
     enabled: true,
     strategies: [
       {
-        storage: localStorage,
+        storage: sessionStorage,
         key: "city",
       },
     ],
