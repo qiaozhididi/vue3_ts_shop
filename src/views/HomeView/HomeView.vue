@@ -25,14 +25,35 @@
       <h3>优选店铺</h3>
     </div>
   </div>
+  <RollComponent :rollInfo="newShopInfo">
+    <div class="new-shop-content" v-if="newGoodsLoading">
+      <div class="new-shop-item" v-for="(item, index) in newGoods" :key="index">
+        <img :src="item.image" alt="" />
+        <p class="new-shop-title">{{ item.title }}</p>
+        <span class="new-shop-price">{{ item.price }}元/月</span>
+      </div>
+    </div>
+    <div class="skeleton-newShop" v-else>
+      <div class="skeleton-item">
+        <van-skeleton-image class="image" />
+        <van-skeleton-paragraph />
+        <van-skeleton-paragraph />
+      </div>
+      <div class="skeleton-item">
+        <van-skeleton-image class="image" />
+        <van-skeleton-paragraph />
+        <van-skeleton-paragraph />
+      </div>
+    </div>
+  </RollComponent>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, reactive } from "vue";
 import router from "@/router";
 import SwiperComponent from "@/components/SwiperComponent.vue";
 import TopNavComponent from "@/components/TopNavComponent.vue";
-import { getBanners } from "@/api/Home/index";
+import { getBanners, getNewGoods } from "@/api/Home/index";
 import nav1 from "../../assets/images/nav1.png";
 import nav2 from "../../assets/images/nav2.png";
 import nav3 from "../../assets/images/nav3.png";
@@ -97,6 +118,34 @@ const onItem = (val: number | string) => {
 const onBeautyInfo = () => {
   router.push("/beauty");
 };
+
+/**
+ * 最新商品
+ */
+const newGoodsLoading = ref<boolean>(false);
+
+interface INewGoods {
+  id: number;
+  image: any;
+  title: string;
+  price: string | number;
+}
+
+const newGoods = ref<INewGoods[]>([]);
+
+const newShopInfo = {
+  title: "最新商铺",
+  all: "查看全部",
+};
+
+onMounted(() => {
+  getNewGoods().then((res) => {
+    if (res.data.status === 200) {
+      newGoodsLoading.value = true;
+      newGoods.value = res.data.data;
+    }
+  });
+});
 </script>
 <style lang="less" scoped>
 .nav {
@@ -182,6 +231,66 @@ const onBeautyInfo = () => {
     background-position: center;
     background-size: cover;
     margin-left: 5px;
+  }
+}
+
+/* 最新商品样式 */
+.new-shop-content {
+  display: flex;
+
+  .new-shop-item {
+    margin-right: 15px;
+
+    img {
+      display: block;
+      width: 230px;
+      height: 130px;
+    }
+
+    .new-shop-title {
+      white-space: normal;
+      word-break: break-word;
+      font-size: 14px;
+      text-align: left;
+      padding: 10px;
+    }
+
+    .new-shop-price {
+      display: block;
+      font-size: 14px;
+      width: 100%;
+      text-align: left;
+      padding: 10px;
+      padding-top: 0px;
+      color: #820085;
+    }
+  }
+}
+
+.skeleton-newShop {
+  height: 208px;
+  width: 100%;
+  display: flex;
+
+  .skeleton-item {
+    margin: 10px;
+    width: 230px;
+
+    image {
+      width: 230px;
+    }
+  }
+}
+
+/* 广告图 */
+.ad {
+  background: #fff;
+  margin: 5px auto;
+
+  img {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
   }
 }
 </style>

@@ -36,7 +36,6 @@ const instance = axios.create({
 instance.interceptors.request.use(
   (config) => {
     if (config.method === "post" || config.method === "put") {
-      // name=iwen&age=20    { name:"iwen",age:20 }
       // config.data = qs.stringify(config.data)
     }
     return config;

@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     PubHeaderComponent: typeof import('./src/components/PubHeaderComponent.vue')['default']
+    RollComponent: typeof import('./src/components/RollComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SwiperComponent: typeof import('./src/components/SwiperComponent.vue')['default']
@@ -20,6 +21,8 @@ declare module 'vue' {
     VanList: typeof import('vant/es')['List']
     VanNavBar: typeof import('vant/es')['NavBar']
     VanSearch: typeof import('vant/es')['Search']
+    VanSkeletonImage: typeof import('vant/es')['SkeletonImage']
+    VanSkeletonParagraph: typeof import('vant/es')['SkeletonParagraph']
     VanSwipe: typeof import('vant/es')['Swipe']
     VanSwipeItem: typeof import('vant/es')['SwipeItem']
     VanTabbar: typeof import('vant/es')['Tabbar']

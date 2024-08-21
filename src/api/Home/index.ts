@@ -16,3 +16,11 @@ export function getBeauty(params: any) {
     params,
   });
 }
+
+// 最新商铺
+export function getNewGoods(){
+  return axios({
+      url:"/api/api/newgoods",
+      method:"get"
+  })
+}
