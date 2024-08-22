@@ -28,6 +28,14 @@
         </div>
       </div>
     </div>
+    <CommentView
+      :comment="item"
+      v-for="(item, index) in comment"
+      :key="index"
+    />
+    <div class="more" @click="onListMore">
+      <div>查看更多</div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -36,6 +44,7 @@ import { useRoute, useRouter } from "vue-router";
 import { getGoodsDetails, getGoodsComment } from "@/api/Goods/index";
 import GoodsDetailsHeader from "@/components/PubHeaderComponent.vue";
 import ItemView from "./components/ItemView.vue";
+import CommentView from "./components/CommentView.vue";
 
 const route = useRoute();
 const router = useRouter();

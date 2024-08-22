@@ -23,3 +23,12 @@ export function getGoodsComment(params:any){
     })
 }
 
+/**
+ * 商品全部评价
+ */
+export function getGoodsCommentAll(){
+    return axios({
+        url:"/api/api/comment/all",
+        method:"get"
+    })
+}

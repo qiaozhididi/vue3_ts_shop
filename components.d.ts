@@ -22,6 +22,7 @@ declare module 'vue' {
     VanIndexBar: typeof import('vant/es')['IndexBar']
     VanList: typeof import('vant/es')['List']
     VanNavBar: typeof import('vant/es')['NavBar']
+    VanRate: typeof import('vant/es')['Rate']
     VanSearch: typeof import('vant/es')['Search']
     VanSkeletonImage: typeof import('vant/es')['SkeletonImage']
     VanSkeletonParagraph: typeof import('vant/es')['SkeletonParagraph']
