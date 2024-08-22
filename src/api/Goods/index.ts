@@ -10,3 +10,16 @@ export function getGoodsDetails(params: any) {
     params,
   });
 }
+
+
+/**
+ * 商品详情评价
+ */
+export function getGoodsComment(params:any){
+    return axios({
+        url:"/api/api/comment/goods",
+        method:"get",
+        params
+    })
+}
+

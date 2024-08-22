@@ -18,11 +18,22 @@
   <div class="gap">
     <ItemView :image="false" :item="item" />
   </div>
+  <div class="comment-container">
+    <div class="comment">
+      <div class="comment-header">
+        <div class="title">用户评价(999+)</div>
+        <div class="percent">
+          <span class="text-desc">98%好评</span>
+          <span class="iconfont icon-jiantouyou"></span>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { getGoodsDetails } from "@/api/Goods/index";
+import { getGoodsDetails, getGoodsComment } from "@/api/Goods/index";
 import GoodsDetailsHeader from "@/components/PubHeaderComponent.vue";
 import ItemView from "./components/ItemView.vue";
 
@@ -53,6 +64,23 @@ onMounted(async () => {
 const item = {
   text: "选择规格",
   desc: "",
+};
+
+/**
+ * 获取商品评价
+ */
+
+const comment = ref([]);
+
+onMounted(async () => {
+  const res = await getGoodsComment({ id: route.params.id });
+  if (res.data.status == 200) {
+    comment.value = res.data.data;
+  }
+});
+
+const onListMore = () => {
+  router.push("/commentList");
 };
 </script>
 <style lang="less" scoped>
