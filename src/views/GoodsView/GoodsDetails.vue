@@ -15,12 +15,16 @@
       <span class="s3">销量：3000</span>
     </div>
   </div>
+  <div class="gap">
+    <ItemView :image="false" :item="item" />
+  </div>
 </template>
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { getGoodsDetails } from "../../api/Goods/index";
-import GoodsDetailsHeader from "../../components/PubHeaderComponent.vue";
+import { getGoodsDetails } from "@/api/Goods/index";
+import GoodsDetailsHeader from "@/components/PubHeaderComponent.vue";
+import ItemView from "./components/ItemView.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -42,6 +46,14 @@ onMounted(async () => {
     goodsDetails.value = res.data.data;
   }
 });
+
+/**
+ * 规格
+ */
+const item = {
+  text: "选择规格",
+  desc: "",
+};
 </script>
 <style lang="less" scoped>
 .details-container {
@@ -99,6 +111,40 @@ onMounted(async () => {
 
     .s3 {
       text-align: right;
+    }
+  }
+}
+
+.gap {
+  margin: 5px 0;
+}
+
+.comment {
+  background: #fff;
+  border-bottom: 1px solid #f3f4f5;
+
+  .comment-header {
+    padding: 10px;
+    display: flex;
+
+    .title {
+      flex: 1;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .percent {
+      flex: 1;
+      text-align: right;
+      color: #999;
+
+      .text-desc {
+        font-size: 12px;
+      }
+
+      .iconfont {
+        font-size: 12px;
+      }
     }
   }
 }
