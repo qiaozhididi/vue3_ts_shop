@@ -9,4 +9,12 @@ export function getPlaceList(params: any) {
   });
 }
 
-
+/**
+ * 选址详情
+ */
+export function getPlaceDetails(params: any) {
+  return axios({
+    url: `/api/api/place/details?id=${params.id}`,
+    method: "get",
+  });
+}

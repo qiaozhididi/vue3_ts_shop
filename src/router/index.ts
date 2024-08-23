@@ -59,7 +59,13 @@ const router = createRouter({
     {
       path: "/commentList",
       name: "commentList",
-      component: () => import("@/views/GoodsView/components/CommentListView.vue"),
+      component: () =>
+        import("@/views/GoodsView/components/CommentListView.vue"),
+    },
+    {
+      path: "/placeDetails/:id",
+      name: "placeDetails",
+      component: () => import("@/views/PlaceView/PlaceDetailsView.vue"),
     },
   ],
 });
