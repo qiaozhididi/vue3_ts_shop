@@ -66,13 +66,35 @@
       </div>
     </van-dropdown-item>
   </van-dropdown-menu>
+  <div class="content">
+    <van-list
+      v-model:loading="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      @load="onLoad"
+    >
+      <div
+        class="place-item"
+        v-for="(item, index) in list"
+        :key="index"
+        @click="onPlaceItem(item.id)"
+      >
+        <img :src="item.image" alt="" />
+        <div class="place-item-desc">
+          <p>{{ item.title }}</p>
+          <span class="descs">{{ item.descs }}</span>
+          <span class="price">{{ item.price }}元/月</span>
+        </div>
+      </div>
+    </van-list>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 import TopNavComponent from "@/components/TopNavComponent.vue";
 import { useRouter } from "vue-router";
-
+import { getPlaceList } from "@/api/Place/index";
 const router = useRouter();
 
 const areas = ["不限", "东城区", "西城区", "朝阳区", "海淀区", "昌平区"];
@@ -141,6 +163,43 @@ const clearBtn = () => {
 
 const sureBtn = () => {
   more.value.toggle();
+};
+
+/**
+ * 列表数据
+ */
+interface IList {
+  id: number;
+  image: string;
+  title: string;
+  descs: string;
+  price: string;
+}
+const loading = ref(false);
+const finished = ref(false);
+const page = ref<number>(1);
+const list = ref<IList[]>([]);
+
+const onLoad = () => {
+  getPlaceList({ page: page.value }).then((res) => {
+    if (res.data.status === 200) {
+      page.value++;
+      list.value = res.data.data;
+    }
+    // 加载状态结束
+    loading.value = false;
+    // 数据全部加载完成
+    if (res.data.status == 500) {
+      finished.value = true;
+    }
+  });
+};
+
+const onPlaceItem = (id: number) => {
+  router.push({
+    name: "placeDetails",
+    params: { id },
+  });
 };
 </script>
 <style lang="less" scoped>
@@ -227,5 +286,41 @@ const sureBtn = () => {
 .activeBtn {
   background-color: #684886 !important;
   color: #fff;
+}
+
+.content {
+  padding: 10px;
+  background-color: #fff;
+  .place-item {
+    border-bottom: 1px solid #f3f4f5;
+    padding: 10px 0;
+    display: flex;
+    img {
+      width: 150px;
+      border-radius: 5px;
+    }
+    .place-item-desc {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 10px;
+      p {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+      .descs {
+        display: block;
+        font-size: 14px;
+        color: #999;
+        margin: 5px 0;
+      }
+      .price {
+        display: block;
+        font-size: 14px;
+        color: #ff4444;
+        margin: 5px 0;
+      }
+    }
+  }
 }
 </style>
