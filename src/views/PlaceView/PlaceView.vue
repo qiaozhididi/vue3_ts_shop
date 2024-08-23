@@ -35,6 +35,36 @@
         </div>
       </div>
     </van-dropdown-item>
+    <van-dropdown-item title="更多" ref="more">
+      <div class="container">
+        <div class="title">{{ mores1.title }}</div>
+        <div
+          :class="[selectBtn1 == childItem ? 'activeBtn' : '']"
+          class="btn"
+          v-for="(childItem, childIndex) in mores1.btns"
+          :key="childIndex"
+          @click="onMore1(childItem)"
+        >
+          {{ childItem }}
+        </div>
+      </div>
+      <div class="container">
+        <div class="title">{{ mores2.title }}</div>
+        <div
+          :class="[selectBtn2 == childItem ? 'activeBtn' : '']"
+          class="btn"
+          v-for="(childItem, childIndex) in mores2.btns"
+          :key="childIndex"
+          @click="onMore2(childItem)"
+        >
+          {{ childItem }}
+        </div>
+      </div>
+      <div class="container btnL">
+        <div class="clearBtn" @click="clearBtn">清空筛选</div>
+        <div class="sureBtn" @click="sureBtn">确定</div>
+      </div>
+    </van-dropdown-item>
   </van-dropdown-menu>
 </template>
 
@@ -95,6 +125,23 @@ const onType = (value: string) => {
   params.type = value;
   type.value.toggle();
 };
+
+const onMore1 = (value: string) => {
+  selectBtn1.value = value;
+};
+
+const onMore2 = (value: string) => {
+  selectBtn2.value = value;
+};
+
+const clearBtn = () => {
+  selectBtn1.value = "不限";
+  selectBtn2.value = "不限";
+};
+
+const sureBtn = () => {
+  more.value.toggle();
+};
 </script>
 <style lang="less" scoped>
 .list {
@@ -124,5 +171,61 @@ const onType = (value: string) => {
   .item-cell {
     text-align: left;
   }
+}
+
+.container {
+  background: #fff;
+  overflow: hidden;
+  clear: both;
+
+  .title {
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  .btn {
+    float: left;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #f3f4f5;
+    margin: 10px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 0;
+    border-radius: 5px;
+  }
+
+  .clearBtn {
+    width: 30%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #f3f4f5;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .sureBtn {
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #684886;
+    color: #fff;
+    border-radius: 5px;
+    margin: 10px;
+  }
+}
+
+.btnL {
+  display: flex;
+  justify-content: center;
+}
+
+.activeBtn {
+  background-color: #684886 !important;
+  color: #fff;
 }
 </style>
