@@ -27,6 +27,14 @@
         </van-cell-group>
       </div>
     </van-dropdown-item>
+    <van-dropdown-item title="类型" ref="type">
+      <div class="container">
+        <div class="title">商铺类型</div>
+        <div class="btn" v-for="(item, index) in types" @click="onType(item)">
+          {{ item }}
+        </div>
+      </div>
+    </van-dropdown-item>
   </van-dropdown-menu>
 </template>
 
@@ -70,12 +78,22 @@ const params: IParams = reactive({
 });
 
 const onLocation = (event: Event) => {
-  //   active.value = event.target.getAttribute("value");
+  active.value = event.target.getAttribute("value");
 };
 
 const onItem = (value: string) => {
   params.location = value;
   location.value.toggle();
+};
+
+const onPrice = (value: string) => {
+  params.price = value;
+  price.value.toggle();
+};
+
+const onType = (value: string) => {
+  params.type = value;
+  type.value.toggle();
 };
 </script>
 <style lang="less" scoped>

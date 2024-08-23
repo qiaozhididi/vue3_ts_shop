@@ -8,7 +8,7 @@ import router from "./router";
 import "./assets/css/main.css";
 import "./assets/font/iconfont.css";
 
-const app = createApp(App);
+const app = createApp(App); 
 const pinia = createPinia();
 pinia.use(piniaPersist);
 
