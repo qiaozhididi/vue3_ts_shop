@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 //持久化
 import piniaPersist from "pinia-plugin-persist";
-import { Tabbar, TabbarItem } from "vant";
+import { Tabbar, TabbarItem, DropdownMenu, DropdownItem } from "vant";
 import App from "./App.vue";
 import router from "./router";
 import "./assets/css/main.css";
@@ -17,5 +17,7 @@ app.use(router);
 app.use(Tabbar);
 app.use(TabbarItem);
 app.use(pinia);
+app.use(DropdownMenu);
+app.use(DropdownItem);
 
 app.mount("#app");
