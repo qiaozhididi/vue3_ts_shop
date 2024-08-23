@@ -99,7 +99,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { getPlaceDetails, getPlaceList } from "@/api/Place/index";
 
@@ -146,8 +146,20 @@ onMounted(() => {
   getPlaceList({ page: 1 }).then((res) => {
     if (res.data.status === 200) {
       list.value = res.data.data;
+      console.log(res);
     }
   });
+});
+
+const onPlaceItem = (id: number) => {
+  router.push({
+    name: "placeDetails",
+    params: { id },
+  });
+  console.log(id);
+};
+watch(route, (to, from) => {
+  router.go(0);
 });
 </script>
 <style lang="less" scoped>
