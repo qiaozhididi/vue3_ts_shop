@@ -24,17 +24,46 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
 import { login } from "@/api/Login/index";
-import { Md5 } from "ts-md5"
+import { Md5 } from "ts-md5";
+import { useTokenStore } from "../../stores/Login";
 
 import { useRoute, useRouter } from "vue-router";
 
 const tel = ref<string>("");
 const password = ref<string>("");
 
+const tokenStore = useTokenStore();
 const router = useRouter();
 const route = useRoute();
 
-const onLogin = () => {};
+const onLogin = () => {
+  tokenStore.setToken(
+    {
+      tel,
+      password,
+      verify: Md5.hashStr("qzfrato"),
+    },
+    () => {
+      // 成功了
+      route.query.redirect
+        ? router.replace(route.query.redirect as string)
+        : router.replace("/");
+    },
+    (error: Object) => {
+      console.log(error);
+    }
+  );
+};
+
+/**
+ * 测试MD5加密
+ */
+onMounted(() => {
+  console.log(Md5.hashStr("qzfrato"));
+  const salt = "ABC%012";
+  console.log(Md5.hashStr("qzfrato" + salt));
+  console.log(Md5.hashStr(Md5.hashStr("qzfrato" + salt)));
+});
 
 const onFree = () => {
   router.push("/register");
