@@ -2,6 +2,14 @@
   <TopNavComponent />
   <SwiperComponent :images="banners" />
   <ShopNavView />
+  <div class="ad">
+    <div class="ad-one">
+      <img src="../../assets/images/ad-1.jpg" alt="" />
+    </div>
+    <div class="ad-tow">
+      <img src="../../assets/images/ad-2.jpg" alt="" />
+    </div>
+  </div>
 </template>
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
@@ -27,4 +35,25 @@ onMounted(() => {
   });
 });
 </script>
-<style scoped></style>
+<style lang="less" scoped>
+.ad {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  margin: 10px 0;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #fff;
+  overflow: hidden;
+  .ad-one {
+    img {
+      width: 100%;
+    }
+  }
+  .ad-tow {
+    img {
+      width: 100%;
+    }
+  }
+}
+</style>
