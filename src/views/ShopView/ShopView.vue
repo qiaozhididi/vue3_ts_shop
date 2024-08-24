@@ -10,12 +10,14 @@
       <img src="../../assets/images/ad-2.jpg" alt="" />
     </div>
   </div>
+  <ShopSeckillView />
 </template>
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
 import TopNavComponent from "@/components/TopNavComponent.vue";
 import SwiperComponent from "@/components/SwiperComponent.vue";
 import ShopNavView from "./ShopNavView.vue";
+import ShopSeckillView from "./ShopSeckillView.vue";
 import { getBanners } from "@/api/Home/index";
 
 //Banner
