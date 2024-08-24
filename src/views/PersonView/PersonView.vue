@@ -3,7 +3,7 @@
   <div class="content">
     <van-list v-model:loading="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
 
-      <div class="person-item" v-for="(item,index) in list" :key="index">
+      <div class="person-item" v-for="(item,index) in list" :key="index" @click="onPersonDetails(item.id)">
         <img :src="item.image" alt="">
         <div class="person-item-desc">
           <p>{{ item.name }}</p>
@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
 import TopNavComponent from "@/components/TopNavComponent.vue";
-import { getPersonList } from "@/api/Person/index"
+import { getPersonList,getPersonDetails } from "@/api/Person/index"
 import { useRouter } from "vue-router";
 
 const router = useRouter()
@@ -58,6 +58,12 @@ const onLoad = () => {
   })
 }
 
+const onPersonDetails = (id:number) =>{
+  router.push({
+    name:"personDetails",
+    params:{id}
+  })
+}
 </script>
 <style lang="less"" scoped>
 .content{

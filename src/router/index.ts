@@ -72,6 +72,11 @@ const router = createRouter({
       name: "placeMap",
       component: () => import("@/views/PlaceView/PlaceMapView.vue"),
     },
+    {
+      path: "/personDetails:id",
+      name: "personDetails",
+      component: () => import("@/views/PersonView/PersonDetailsView.vue"),
+    },
   ],
 });
 
