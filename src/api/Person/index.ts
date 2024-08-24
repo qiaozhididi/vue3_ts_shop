@@ -1,0 +1,10 @@
+import axios from "../../utils/request"
+
+// 人才列表
+export function getPersonList(params:any){
+    return axios({
+        url:"/api/api/person/list",
+        method:"get",
+        params
+    })
+}
