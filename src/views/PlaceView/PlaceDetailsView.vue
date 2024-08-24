@@ -159,7 +159,7 @@ const onPlaceItem = (id: number) => {
   console.log(id);
 };
 watch(route, (to, from) => {
-  router.go(0);
+  router.go(0); // 刷新页面
 });
 </script>
 <style lang="less" scoped>

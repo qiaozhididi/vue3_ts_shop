@@ -67,6 +67,11 @@ const router = createRouter({
       name: "placeDetails",
       component: () => import("@/views/PlaceView/PlaceDetailsView.vue"),
     },
+    {
+      path: "/placeMap",
+      name: "placeMap",
+      component: () => import("@/views/PlaceView/PlaceMapView.vue"),
+    },
   ],
 });
 
