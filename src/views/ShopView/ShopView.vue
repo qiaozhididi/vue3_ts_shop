@@ -1,12 +1,28 @@
 <template>
-   <div>商店</div>
-   <LayoutView></LayoutView>
+  <TopNavComponent />
+  <SwiperComponent :images="banners" />
 </template>
-
 <script setup lang="ts">
-import LayoutView from '../LayoutView.vue';
+import { ref, reactive, onMounted } from "vue";
+import TopNavComponent from "@/components/TopNavComponent.vue";
+import SwiperComponent from "@/components/SwiperComponent.vue";
+import { getBanners } from "@/api/Home/index";
 
+//Banner
+interface IBanner {
+  image: string;
+  title: string;
+  url: string;
+}
+
+const banners = ref<IBanner[]>([]);
+
+onMounted(() => {
+  getBanners().then((res) => {
+    if (res.data.status === 200) {
+      banners.value = res.data.data;
+    }
+  });
+});
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>
