@@ -70,7 +70,7 @@ const router = createRouter({
     {
       path: "/placeMap",
       name: "placeMap",
-      component: () => import("@/views/PlaceView/PlaceMapView.vue"),
+      component: () => import("@/views/PlaceView/PlaceMapsView.vue"),
     },
     {
       path: "/personDetails:id",
@@ -85,7 +85,7 @@ const router = createRouter({
     {
       path: "/register",
       name: "register",
-      component: () => import("../views/LoginView/RegisterView.vue"),
+      component: () => import("@/views/LoginView/RegisterView.vue"),
     },
   ],
 });

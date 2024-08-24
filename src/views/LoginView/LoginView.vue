@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <div class="login">
-      <!-- <img src="" alt="" /> -->
+      <img src="../../assets/images/logo.png" alt="" />
     </div>
     <div class="info">
       <van-cell-group inset>
@@ -20,13 +20,10 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-import { login } from "@/api/Login/index";
 import { Md5 } from "ts-md5";
-import { useTokenStore } from "../../stores/Login";
-
+import { useTokenStore } from "@/stores/Login";
 import { useRoute, useRouter } from "vue-router";
 
 const tel = ref<string>("");
@@ -41,7 +38,7 @@ const onLogin = () => {
     {
       tel,
       password,
-      verify: Md5.hashStr("qzfrato"),
+      verify: Md5.hashStr("iwenwiki"),
     },
     () => {
       // 成功了
@@ -54,16 +51,6 @@ const onLogin = () => {
     }
   );
 };
-
-/**
- * 测试MD5加密
- */
-onMounted(() => {
-  console.log(Md5.hashStr("qzfrato"));
-  const salt = "ABC%012";
-  console.log(Md5.hashStr("qzfrato" + salt));
-  console.log(Md5.hashStr(Md5.hashStr("qzfrato" + salt)));
-});
 
 const onFree = () => {
   router.push("/register");

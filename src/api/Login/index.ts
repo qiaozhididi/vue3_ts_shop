@@ -9,3 +9,12 @@ export function login(data: any) {
     data: qs.stringify(data),
   });
 }
+
+// 注册
+export function register(data: any) {
+  return axios({
+    url: "/api/api/register",
+    method: "post",
+    data: qs.stringify(data),
+  });
+}
