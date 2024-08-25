@@ -97,6 +97,11 @@ const router = createRouter({
       name: "mineaccount",
       component: () => import("@/views/MineView/MineAccountView.vue"),
     },
+    {
+      path: "/minedata",
+      name: "minedata",
+      component: () => import("@/views/MineView/MineDataView.vue"),
+    },
   ],
 });
 
