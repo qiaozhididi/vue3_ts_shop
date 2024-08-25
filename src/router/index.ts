@@ -88,9 +88,14 @@ const router = createRouter({
       component: () => import("@/views/LoginView/RegisterView.vue"),
     },
     {
-      path:"/mineset",
-      name:"mineset",
-      component:() => import("@/views/MineView/MineSetView.vue")
+      path: "/mineset",
+      name: "mineset",
+      component: () => import("@/views/MineView/MineSetView.vue"),
+    },
+    {
+      path: "/mineaccount",
+      name: "mineaccount",
+      component: () => import("@/views/MineView/MineAccountView.vue"),
     },
   ],
 });
