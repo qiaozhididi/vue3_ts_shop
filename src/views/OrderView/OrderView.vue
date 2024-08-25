@@ -21,6 +21,8 @@ import { useRoute } from "vue-router";
 import OrderViewHeader from "@/components/PubHeaderComponent.vue";
 import OrderAllView from "./OrderAllView.vue";
 import OrderAppraiseView from "./OrderAppraiseView.vue";
+import OrderTakeView from "./OrderTakeView.vue";
+
 
 const route = useRoute();
 
