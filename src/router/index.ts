@@ -87,6 +87,11 @@ const router = createRouter({
       name: "register",
       component: () => import("@/views/LoginView/RegisterView.vue"),
     },
+    {
+      path:"/mineset",
+      name:"mineset",
+      component:() => import("@/views/MineView/MineSetView.vue")
+    },
   ],
 });
 
