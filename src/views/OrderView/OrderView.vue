@@ -22,7 +22,7 @@ import OrderViewHeader from "@/components/PubHeaderComponent.vue";
 import OrderAllView from "./OrderAllView.vue";
 import OrderAppraiseView from "./OrderAppraiseView.vue";
 import OrderTakeView from "./OrderTakeView.vue";
-
+import OrderPayView from "./OrderPayView.vue";
 
 const route = useRoute();
 
