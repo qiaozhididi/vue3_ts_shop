@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <div class="login">
-      <img src="../../assets/images/logo.png" alt="" />
+      <img src="" alt="" />
     </div>
     <div class="info">
       <van-cell-group inset>
