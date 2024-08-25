@@ -102,6 +102,11 @@ const router = createRouter({
       name: "minedata",
       component: () => import("@/views/MineView/MineDataView.vue"),
     },
+    {
+      path: "/order/:index",
+      name: "order",
+      component: () => import("@/views/OrderView/OrderView.vue"),
+    },
   ],
 });
 
