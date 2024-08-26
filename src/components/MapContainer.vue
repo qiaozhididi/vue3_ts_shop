@@ -31,7 +31,4 @@ const initMapView = async () => {
 onMounted(() => {
   initMapView();
 });
-onUnmounted(() => {
-  map.value.destroy();
-});
 </script>
