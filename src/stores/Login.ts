@@ -34,12 +34,7 @@ export const useTokenStore = defineStore("login", {
     },
   },
   persist: {
-    enabled: true,
-    strategies: [
-      {
-        storage: localStorage,
-        key: "user",
-      },
-    ],
+    storage: localStorage,
+    key: "user",
   },
 });

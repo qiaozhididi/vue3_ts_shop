@@ -5,12 +5,7 @@ export const useCityStore = defineStore("city", {
     city: "北京",
   }),
   persist: {
-    enabled: true,
-    strategies: [
-      {
-        storage: sessionStorage,
-        key: "city",
-      },
-    ],
+    storage: sessionStorage,
+    key: "city",
   },
 });

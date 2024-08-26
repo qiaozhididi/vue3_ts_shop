@@ -4,15 +4,15 @@
   <ShopNavView />
   <div class="ad">
     <div class="ad-one">
-      <img src="../../assets/images/ad-1.jpg" alt="" />
+      <img src="@/assets/images/ad-1.jpg" alt="" />
     </div>
     <div class="ad-tow">
-      <img src="../../assets/images/ad-2.jpg" alt="" />
+      <img src="@/assets/images/ad-2.jpg" alt="" />
     </div>
   </div>
   <ShopSeckillView />
   <div class="suit">
-    <img src="../../assets/images/t1.jpg" alt="" />
+    <img src="@/assets/images/t1.jpg" alt="" />
   </div>
   <RollComponent :rollInfo="suit">
     <div class="suit-content">

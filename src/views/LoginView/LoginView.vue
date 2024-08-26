@@ -38,7 +38,7 @@ const onLogin = () => {
     {
       tel,
       password,
-      verify: Md5.hashStr("iwenwiki"),
+      verify: Md5.hashStr("qzfrato"),
     },
     () => {
       // 成功了
@@ -48,6 +48,7 @@ const onLogin = () => {
     },
     (error: Object) => {
       console.log(error);
+      console.log("登录失败");
     }
   );
 };

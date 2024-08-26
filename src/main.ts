@@ -1,7 +1,8 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 //持久化
-import piniaPersist from "pinia-plugin-persist";
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+
 import { Tabbar, TabbarItem, DropdownMenu, DropdownItem } from "vant";
 import App from "./App.vue";
 import router from "./router";
@@ -13,7 +14,7 @@ import BaiduMap from "vue-baidu-map-3x";
 
 const app = createApp(App);
 const pinia = createPinia();
-pinia.use(piniaPersist);
+pinia.use(piniaPluginPersistedstate);
 
 app.use(createPinia());
 app.use(router);
