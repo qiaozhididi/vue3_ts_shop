@@ -8,6 +8,7 @@ import { VantResolver } from "@vant/auto-import-resolver";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/Mall", // 打包路径
   plugins: [
     vue(),
     AutoImport({
@@ -22,6 +23,7 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+  //开发服务器配置 处理跨域
   server: {
     host: "0.0.0.0",
     proxy: {
