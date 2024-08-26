@@ -26,7 +26,8 @@ import OrderPayView from "./OrderPayView.vue";
 
 const route = useRoute();
 
-const active = ref<string | string[]>("allOrder");
+// const active = ref<string|string[]>("allOrder");
+const active = ref<any>("allOrder");
 
 onMounted(() => {
   active.value = route.params.index;

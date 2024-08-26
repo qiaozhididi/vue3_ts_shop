@@ -22,6 +22,7 @@ const { user } = useTokenStore();
 const item1 = {
   text: "头像",
   image: icon,
+  desc: "昵称",
 };
 
 const item2 = {

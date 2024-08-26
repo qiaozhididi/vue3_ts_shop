@@ -6,7 +6,7 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 import ItemView from "./components/ItemView.vue";
-import { useOrder } from "./use/useOrder.ts";
+import { useOrder } from "./use/useOrder";
 
 const props = defineProps<{
   type: string;

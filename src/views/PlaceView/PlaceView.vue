@@ -115,7 +115,7 @@ interface IParams {
   type: string;
 }
 
-const active = ref<string>("area");
+const active = ref<string | null>("area");
 const location = ref();
 const price = ref();
 const type = ref();
@@ -130,7 +130,10 @@ const params: IParams = reactive({
 });
 
 const onLocation = (event: Event) => {
-  active.value = event.target.getAttribute("value");
+  if (event.target) {
+    active.value = (event.target as Element).getAttribute("value");
+    console.log(active.value);
+  }
 };
 
 const onItem = (value: string) => {

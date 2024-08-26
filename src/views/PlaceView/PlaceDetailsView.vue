@@ -146,7 +146,6 @@ onMounted(() => {
   getPlaceList({ page: 1 }).then((res) => {
     if (res.data.status === 200) {
       list.value = res.data.data;
-      console.log(res);
     }
   });
 });
@@ -156,7 +155,6 @@ const onPlaceItem = (id: number) => {
     name: "placeDetails",
     params: { id },
   });
-  console.log(id);
 };
 watch(route, (to, from) => {
   router.go(0); // 刷新页面
