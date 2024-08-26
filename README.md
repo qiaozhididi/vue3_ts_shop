@@ -15,6 +15,9 @@ UI组件库：npm i vant@next -S
 ## 本地存储持久化
 安装依赖：pinia-plugin-persistedstate
 
+## 高德地图组件
+安装依赖：npm i @amap/amap-jsapi-loader --save
+
 ## 跨域配置
 原因：浏览器同源策略。域名，端口，协议不同都会引起跨域
 解决方案：
