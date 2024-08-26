@@ -52,7 +52,7 @@ const router = createRouter({
       component: () => import("@/views/HomeView/BeautyView.vue"),
     },
     {
-      path: "/goodsDetails:id",
+      path: "/goodsDetails/:id",
       name: "goodsDetails",
       component: () => import("@/views/GoodsView/GoodsDetails.vue"),
     },
@@ -73,7 +73,7 @@ const router = createRouter({
       component: () => import("@/views/PlaceView/PlaceMapsView.vue"),
     },
     {
-      path: "/personDetails:id",
+      path: "/personDetails/:id",
       name: "personDetails",
       component: () => import("@/views/PersonView/PersonDetailsView.vue"),
     },
@@ -106,6 +106,11 @@ const router = createRouter({
       path: "/order/:index",
       name: "order",
       component: () => import("@/views/OrderView/OrderView.vue"),
+    },
+    {
+      path: "/pay/:id",
+      name: "pay",
+      component: () => import("@/views/PayView/PayView.vue"),
     },
   ],
 });

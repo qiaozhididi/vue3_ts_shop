@@ -300,6 +300,7 @@ router.post("/login", (req, res) => {
  */
 router.post("/register", (req, res) => {
   const { password, phone } = req.body;
+  console.log(req.body);
   // 随机生成用户名
   let chars = [
     "0",
