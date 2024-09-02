@@ -92,11 +92,13 @@ onMounted(() => {
   .ad-one {
     img {
       width: 100%;
+      height: 80px;
     }
   }
   .ad-tow {
     img {
       width: 100%;
+      height: 80px;
     }
   }
 }
